@@ -60,8 +60,13 @@
   --shadow-sm: 0 1px 2px rgba(16, 18, 7, 0.06), 0 1px 3px rgba(16, 18, 7, 0.08);
   --shadow-md: 0 4px 12px rgba(16, 18, 7, 0.07), 0 12px 28px rgba(16, 18, 7, 0.08);
   --shadow-lg: 0 10px 24px rgba(16, 18, 7, 0.09), 0 28px 60px rgba(16, 18, 7, 0.13);
-  --shadow-lime: 0 8px 20px rgba(143, 196, 0, 0.4);
-  --shadow-gold: 0 8px 20px rgba(240, 165, 0, 0.34);
+  /* Accent glows are centred (no y-offset) with a spread radius, so the halo
+     sits evenly around the whole element instead of pooling underneath it.
+     A separate hairline shadow does the grounding. */
+  --shadow-lime: 0 0 16px 1px rgba(143, 196, 0, 0.32), 0 1px 3px rgba(16, 18, 7, 0.12);
+  --shadow-lime-lift: 0 0 26px 5px rgba(143, 196, 0, 0.42), 0 2px 6px rgba(16, 18, 7, 0.14);
+  --shadow-gold: 0 0 16px 1px rgba(240, 165, 0, 0.3), 0 1px 3px rgba(16, 18, 7, 0.12);
+  --shadow-gold-lift: 0 0 26px 5px rgba(240, 165, 0, 0.4), 0 2px 6px rgba(16, 18, 7, 0.14);
 
   /* Geometry */
   --r-sm: 10px;
@@ -417,7 +422,7 @@ hr {
   color: var(--btn-fg);
   transform: translateY(-2px);
   filter: saturate(1.15) brightness(1.04);
-  box-shadow: 0 12px 28px rgba(15, 191, 163, 0.42);
+  box-shadow: var(--shadow-lime-lift);
 }
 
 .btn:active {
@@ -430,7 +435,7 @@ hr {
   box-shadow: var(--shadow-gold);
 }
 .btn--gold:hover {
-  box-shadow: 0 12px 28px rgba(255, 169, 22, 0.42);
+  box-shadow: var(--shadow-gold-lift);
 }
 
 .btn--ghost {
@@ -1933,25 +1938,6 @@ textarea::placeholder {
   display: block;
 }
 
-/* Checkbox */
-.check {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  font-size: 0.9375rem;
-  color: var(--stone-700);
-  cursor: pointer;
-}
-
-.check input[type="checkbox"] {
-  flex: none;
-  width: 22px;
-  height: 22px;
-  margin: 1px 0 0;
-  accent-color: var(--lime-600);
-  cursor: pointer;
-}
-
 /* Character counter */
 .counter {
   align-self: flex-end;
@@ -2207,9 +2193,25 @@ textarea::placeholder {
   margin: 0;
 }
 
+/* Label sits above the value, matching the contact page layout. */
+.footer-contact .label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7e846f;
+  margin-bottom: 0.1rem;
+}
+
 .footer-contact .value {
+  display: block;
   color: var(--white);
   font-weight: 700;
+}
+
+.footer-contact ul {
+  gap: 1rem;
 }
 
 .footer-contact address {
