@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CGK Accounting Services">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C6F62E"/>
+      <stop offset="0.55" stop-color="#8FC400"/>
+      <stop offset="1" stop-color="#6C9A00"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#g)"/>
+  <g fill="none" stroke="#18250A" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10.5 V53.5"/>
+    <path d="M42.8 21.4
+             C42.8 16.4 37.9 13.6 32 13.6
+             C26.1 13.6 21.2 16.6 21.2 21.6
+             C21.2 26.9 26.1 29 32 31
+             C37.9 33 42.8 35.1 42.8 40.4
+             C42.8 45.4 37.9 48.4 32 48.4
+             C26.1 48.4 21.2 45.6 21.2 40.6"/>
+  </g>
+</svg>

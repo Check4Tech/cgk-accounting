@@ -1,0 +1,116 @@
+# CGK Accounting Services — Netlify configuration
+# Static site: nothing is built, the repository root is published as-is.
+
+[build]
+  publish = "."
+
+# ---------------------------------------------------------------------------
+# Redirects
+# ---------------------------------------------------------------------------
+# The previous site used /home.html as the homepage. Preserve that link equity.
+[[redirects]]
+  from = "/home.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.htm"
+  to = "/"
+  status = 301
+  force = true
+
+# Friendly aliases people type or that appear on directory listings.
+[[redirects]]
+  from = "/contact"
+  to = "/contact-us.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact-us.html"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 301
+
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/tax"
+  to = "/tax.html"
+  status = 301
+
+[[redirects]]
+  from = "/bookkeeping"
+  to = "/bookkeeping.html"
+  status = 301
+
+[[redirects]]
+  from = "/accounting"
+  to = "/accounting.html"
+  status = 301
+
+[[redirects]]
+  from = "/consulting"
+  to = "/consulting.html"
+  status = 301
+
+[[redirects]]
+  from = "/resources"
+  to = "/resources.html"
+  status = 301
+
+# ---------------------------------------------------------------------------
+# Security headers
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Force HTTPS for two years, including subdomains. Safe to preload.
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+    # Block MIME sniffing, clickjacking and cross-origin framing.
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+
+    # Deny every powerful browser feature the site does not use.
+    Permissions-Policy = "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), usb=(), xr-spatial-tracking=(), interest-cohort=()"
+
+    # Content Security Policy.
+    #   script-src  : own scripts only, plus Google reCAPTCHA (injected by Netlify Forms)
+    #   style-src   : own styles, Google Fonts CSS, and inline styles written by reCAPTCHA
+    #   frame-src   : the reCAPTCHA challenge iframe
+    #   form-action : this origin only — the form cannot be repointed at a third party
+    #   object-src / base-uri: locked down to blunt injection attacks
+    Content-Security-Policy = "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google.com https://www.gstatic.com; connect-src 'self' https://www.google.com; frame-src https://www.google.com https://recaptcha.google.com; manifest-src 'self'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/xml; charset=utf-8"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"

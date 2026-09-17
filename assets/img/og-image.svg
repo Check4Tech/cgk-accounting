@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101207"/>
+      <stop offset="0.5" stop-color="#1B2112"/>
+      <stop offset="1" stop-color="#2A3A14"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C6F62E"/>
+      <stop offset="0.55" stop-color="#8FC400"/>
+      <stop offset="1" stop-color="#6C9A00"/>
+    </linearGradient>
+    <linearGradient id="head" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.7" stop-color="#DCFB5A"/>
+      <stop offset="1" stop-color="#FFE08A"/>
+    </linearGradient>
+    <radialGradient id="blobA" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8FC400" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#8FC400" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blobB" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F0A500" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#F0A500" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1075" cy="90" r="330" fill="url(#blobA)"/>
+  <circle cx="90" cy="600" r="300" fill="url(#blobB)"/>
+
+  <g transform="translate(80 74)">
+    <rect width="86" height="86" rx="24" fill="url(#mark)"/>
+    <g transform="translate(43 43) scale(1.16) translate(-32 -32)"
+       fill="none" stroke="#18250A" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M32 10.5 V53.5"/>
+      <path d="M42.8 21.4 C42.8 16.4 37.9 13.6 32 13.6 C26.1 13.6 21.2 16.6 21.2 21.6 C21.2 26.9 26.1 29 32 31 C37.9 33 42.8 35.1 42.8 40.4 C42.8 45.4 37.9 48.4 32 48.4 C26.1 48.4 21.2 45.6 21.2 40.6"/>
+    </g>
+  </g>
+
+  <text x="190" y="112" font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif"
+        font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">CGK Accounting Services</text>
+  <text x="190" y="146" font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif"
+        font-size="18" font-weight="700" fill="#8A9179" letter-spacing="3.4">EAST PATCHOGUE, NEW YORK</text>
+
+  <text x="80" y="300" font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif"
+        font-size="72" font-weight="800" fill="url(#head)" letter-spacing="-2.6">Affordable accounting</text>
+  <text x="80" y="382" font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif"
+        font-size="72" font-weight="800" fill="url(#head)" letter-spacing="-2.6">&amp; tax help on Long Island</text>
+
+  <text x="80" y="446" font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif"
+        font-size="27" font-weight="500" fill="#A9B09A">Owner-operated by Chris Kamine &#183; 25+ years&#8217; experience</text>
+
+  <g font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-size="20" font-weight="800">
+    <rect x="80" y="500" width="232" height="54" rx="27" fill="#8FC400"/>
+    <text x="196" y="534" fill="#18250A" text-anchor="middle">BBB A+ Accredited</text>
+
+    <rect x="330" y="500" width="300" height="54" rx="27" fill="none" stroke="#4E5440" stroke-width="2"/>
+    <text x="480" y="534" fill="#D3D8C6" text-anchor="middle">IRS Authorized e-File</text>
+
+    <rect x="648" y="500" width="250" height="54" rx="27" fill="none" stroke="#4E5440" stroke-width="2"/>
+    <text x="773" y="534" fill="#D3D8C6" text-anchor="middle">(631) 908-5130</text>
+  </g>
+</svg>
