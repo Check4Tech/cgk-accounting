@@ -2261,6 +2261,10 @@ textarea::placeholder {
   margin: 0;
 }
 
+.footer-credit {
+  flex: 1 0 100%;
+}
+
 /* Sticky mobile call bar */
 .callbar {
   position: fixed;
