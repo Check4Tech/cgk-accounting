@@ -283,10 +283,32 @@
       return;
     }
 
-    // 4. Block double submits.
+    // 4. Send through Netlify Forms, then open the thank-you page.
+    // A normal submit follows Netlify's redirect, which lands on the
+    // "page not found" screen. Posting here lets us open the real page.
+    e.preventDefault();
     if (submitBtn) {
       submitBtn.setAttribute("aria-busy", "true");
       submitBtn.textContent = "Sending…";
     }
+
+    var body = new URLSearchParams(new FormData(form)).toString();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded", "Accept": "text/html" },
+      body: body
+    }).then(function (res) {
+      if ((res.url || "").indexOf("/thanks") !== -1) {
+        window.location.href = "/thanks.html";
+        return;
+      }
+      throw new Error("not accepted");
+    }).catch(function () {
+      showStatus("error", "That message didn't go through. Please call (631) 908-5130 or try again.");
+      if (submitBtn) {
+        submitBtn.removeAttribute("aria-busy");
+        submitBtn.textContent = "Send message";
+      }
+    });
   });
 })();
