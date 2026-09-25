@@ -1000,6 +1000,15 @@ hr {
   white-space: nowrap;
 }
 
+a.hero__badge,
+a.hero__badge:hover,
+a.hero__badge:focus,
+a.hero__badge:visited {
+  color: #dfe3d4;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* Hero card (right column) */
 .hero__card {
   background: rgba(255, 255, 255, 0.055);

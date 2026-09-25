@@ -118,6 +118,37 @@
   });
 
   /* ------------------------------------------------------------------
+     Years in public accounting. The pages state 15 as of 2026
+     (data-years-base / data-years-base-year). That count advances by one
+     at midnight Eastern on each January 1.
+     ------------------------------------------------------------------ */
+  var accountingYear = Number(
+    new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", year: "numeric" }).format(new Date())
+  );
+  Array.prototype.forEach.call(document.querySelectorAll("[data-years-base]"), function (el) {
+    var base = parseInt(el.getAttribute("data-years-base"), 10);
+    var baseYear = parseInt(el.getAttribute("data-years-base-year"), 10);
+    if (!base || !baseYear) return;
+    var years = base + (accountingYear - baseYear);
+    if (years < 1) return;
+    var suffix = el.hasAttribute("data-years-suffix") ? el.getAttribute("data-years-suffix") : "";
+    el.textContent = String(years) + suffix;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('script[type="application/ld+json"]'), function (script) {
+    if (script.textContent.indexOf("fifteen years in public accounting") === -1) return;
+    var sample = document.querySelector("[data-years-base]");
+    if (!sample) return;
+    var base = parseInt(sample.getAttribute("data-years-base"), 10);
+    var baseYear = parseInt(sample.getAttribute("data-years-base-year"), 10);
+    if (!base || !baseYear) return;
+    var years = base + (accountingYear - baseYear);
+    script.textContent = script.textContent.replace(
+      /fifteen years in public accounting/g,
+      years + " years in public accounting"
+    );
+  });
+
+  /* ------------------------------------------------------------------
      Email addresses are assembled at runtime so harvesters scraping the
      raw HTML never see a mailto: address. Without JS the markup still
      links somewhere useful (the contact page).
